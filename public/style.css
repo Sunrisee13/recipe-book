@@ -13,3 +13,8 @@ body{
 .last-menu {
   margin-right: 30px;
 }
+
+.navbar {
+  display: flex;
+  justify-content: space-around;
+}

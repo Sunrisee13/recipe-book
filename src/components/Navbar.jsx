@@ -6,7 +6,7 @@ export default function Navbar() {
       <div className='logo'>
         <img src='img/logo.svg' alt='' />
       </div>
-      <div className='container-fluid'>
+      <div className='container-fluid navbar'>
         <a className='navbar-brand' href='#'>
           Книга рецептов
         </a>
@@ -46,7 +46,16 @@ export default function Navbar() {
                 </li>
               </ul>
             </li>
+            <li>
+              <span className='navbar-toggler-icon'>Имя пользователя</span>
+            </li>
           </ul>
+          <button className='btn btn-outline-success' type='submit'>
+            Избранное
+          </button>
+          <button className='btn btn-outline-success' type='submit'>
+            Выйти
+          </button>
         </div>
       </div>
     </nav>
