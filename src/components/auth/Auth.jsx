@@ -3,11 +3,12 @@ import React from "react";
 export default function Auth() {
   async function submitHandler(e) {
     e.preventDefault();
-    fetch("/auth", {
+    const res = await fetch("/auth", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(Object.fromEntries(new FormData(e.target))),
     });
+    if (res.status === 200) window.location = "/";
   }
   return (
     <form onSubmit={submitHandler}>
