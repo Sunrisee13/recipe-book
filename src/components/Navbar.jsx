@@ -35,12 +35,12 @@ export default function Navbar() {
               </a>
               <ul className='dropdown-menu'>
                 <li>
-                  <a className='dropdown-item' href='#'>
+                  <a className='dropdown-item' href='/auth/reg'>
                     Зарегистрироваться
                   </a>
                 </li>
                 <li>
-                  <a className='dropdown-item' href='#'>
+                  <a className='dropdown-item' href='/auth'>
                     Уже есть логин
                   </a>
                 </li>
