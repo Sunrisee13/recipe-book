@@ -10,9 +10,22 @@ router
     const initState = {};
     res.render("Layout", initState);
   })
-  .post((req, res) => {
-    console.log(req.body);
-    res.sendStatus(200);
+  .post(async (req, res) => {
+    const { email, password } = req.body;
+    if (!email && !password)
+      return res.status(400).json({ message: "Не должно быть пустых полей" });
+    try {
+      const user = await User.findOne({ where: { email } });
+      // console.log(user.paswword);
+      if (user && (await bcrypt.compare(password, user.password))) {
+        req.session.user = { id: user.id, username: user.username };
+
+        return res.sendStatus(200);
+      }
+      return res.status(401).json({ message: "Проверьте введенные данные" });
+    } catch (err) {
+      return res.status(500).json({ message: "Непредвиденная ошибка" });
+    }
   });
 
 router

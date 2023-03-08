@@ -29,7 +29,7 @@ export default function Register() {
         </label>
         <input
           name="login"
-          type="password"
+          type="text"
           class="form-control"
           id="exampleInputPassword1"
         />
