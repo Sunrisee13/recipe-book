@@ -4,6 +4,7 @@ import path from 'path';
 import jsxRender from './utils/jsxRender';
 import indexRouter from './routes/indexRouter';
 import favouriteRouter from './routes/favouriteRouter';
+import Layout from './components/Layout';
 
 require('dotenv').config();
 
