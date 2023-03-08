@@ -18,7 +18,7 @@ router
       const user = await User.findOne({ where: { email } });
       // console.log(user.paswword);
       if (user && (await bcrypt.compare(password, user.password))) {
-        req.session.user = { id: user.id, username: user.username };
+        req.session.user = { id: user.id, login: user.login };
 
         return res.sendStatus(200);
       }
@@ -51,7 +51,7 @@ router
           .status(403)
           .json({ message: "Пользователь с таким email уже существует" });
 
-      req.session.user = { id: user.id, name: user.name };
+      req.session.user = { id: user.id, login: user.login };
       return res.sendStatus(200);
     } catch (e) {
       console.log(e);

@@ -6,10 +6,11 @@ import Favourite from "./Favourite";
 import Home from "./Home";
 import Navbar from "./Navbar";
 
-function App({}) {
+function App({user}) {
+  console.log(user);
   return (
     <>
-      <Navbar />
+      <Navbar user={user}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/favourite" element={<Favourite />} />
