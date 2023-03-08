@@ -1,12 +1,16 @@
-import React from "react";
-import { Routes, Route } from "react-router-dom";
+import React from 'react';
+import { Routes, Route } from 'react-router-dom';
+import Favourite from './Favourite';
+import Home from './Home';
+import Navbar from './Navbar';
 
 function App({}) {
   return (
     <>
-      {/* <NavBar /> */}
+      <Navbar />
       <Routes>
-        {/* <Route index path="/" element={<Home title={title} />} /> */}
+        <Route index path='/' element={<Home />} />
+        <Route index path='/favourite' element={<Favourite />} />
       </Routes>
     </>
   );
