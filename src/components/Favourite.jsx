@@ -1,7 +1,12 @@
-import React from 'react'
+import React from "react";
+import OneRecipe from "./homeElements/OneRecipe";
 
-export default function Favourite() {
+export default function Favourite({ recipes }) {
   return (
-    <div>Favourite</div>
-  )
+    <div className="row">
+      {recipes?.map((recipe) => (
+        <OneRecipe recipe={recipe} />
+      ))}
+    </div>
+  );
 }

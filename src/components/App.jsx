@@ -7,14 +7,14 @@ import Home from "./Home";
 import Navbar from "./Navbar";
 import ReceipePage from "./homeElements/ReceipePage"; // удалить + роутер
 
-function App({ user }) {
+function App({ user, recipes }) {
   console.log(user);
   return (
     <>
       <Navbar user={user} />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/favourite" element={<Favourite />} />
+        <Route path="/favourite" element={<Favourite recipes={recipes} />} />
         <Route path="/auth/reg" element={<Register />} />
         <Route path="/auth" element={<Auth />} />
         <Route path="/test" element={<ReceipePage />} />
