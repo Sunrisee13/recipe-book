@@ -5,7 +5,7 @@ export default function Favourite({ recipes }) {
   return (
     <div className="row">
       {recipes?.map((recipe) => (
-        <OneRecipe key={recipe.id} recipe={recipe} />
+        <OneRecipe recipe={recipe} />
       ))}
     </div>
   );
