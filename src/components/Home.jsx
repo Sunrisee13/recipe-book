@@ -1,25 +1,26 @@
-import React, { useEffect, useState } from 'react';
-import OneRecipe from './homeElements/OneRecipe';
-import ReceipePage from './homeElements/ReceipePage';
+import React, { useEffect, useState } from "react";
+import OneRecipe from "./homeElements/OneRecipe";
+import ReceipePage from "./homeElements/ReceipePage";
+import Sort from "./homeElements/Sort";
 
 export default function Home({ user }) {
   const [recipes1, setRecipes] = useState([]);
   const category = () => {
     const hardCodeCategoryFood = [
-      'soup',
-      'salad',
-      'burger',
-      'paste',
-      'meat',
-      'drink',
-      'cake',
-      'bread',
-      'cereals',
-      'desserts',
-      'preserve',
-      'preps',
-      'sandwiches',
-      'starter',
+      "soup",
+      "salad",
+      "burger",
+      "paste",
+      "meat",
+      "drink",
+      "cake",
+      "bread",
+      "cereals",
+      "desserts",
+      "preserve",
+      "preps",
+      "sandwiches",
+      "starter",
     ];
     const random = Math.floor(Math.random() * hardCodeCategoryFood.length);
     return hardCodeCategoryFood[random];
@@ -49,12 +50,12 @@ export default function Home({ user }) {
   }, []);
 
   const [oneRecipePage, setOneRecipePage] = useState({
-    name: '',
-    img: '',
-    ingredients: '',
-    instruction: '',
-    time: '',
-    ingredientsScale: '',
+    name: "",
+    img: "",
+    ingredients: "",
+    instruction: "",
+    time: "",
+    ingredientsScale: "",
   });
   return (
     <>
@@ -65,17 +66,19 @@ export default function Home({ user }) {
           user={user}
         />
       ) : (
-        <div className='row'>
-          {recipes1?.map((recipe) => (
-            <OneRecipe
-              key={recipe.name}
-              recipe={recipe}
-              setOneRecipePage={setOneRecipePage}
-              user={user}
-
-            />
-          ))}
-        </div>
+        <>
+          <Sort setRecipes={setRecipes} />
+          <div className="row">
+            {recipes1?.map((recipe) => (
+              <OneRecipe
+                key={recipe.name}
+                recipe={recipe}
+                setOneRecipePage={setOneRecipePage}
+                user={user}
+              />
+            ))}
+          </div>
+        </>
       )}
     </>
   );

@@ -36,7 +36,7 @@ export default function Layout({ initState }) {
         <script defer src="/js/app.js" />
         <script defer src="/js/vendor.js" />
 
-        <title>RecipeBook</title>
+        <title>Recipe Book</title>
       </head>
       <body>
         <div id="root">
