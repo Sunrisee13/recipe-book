@@ -11,7 +11,7 @@ export default function Navbar({ user }) {
         <img src="img/logo.svg" alt="" />
       </div>
       <div className="container-fluid navbar">
-        <a className="navbar-brand" href="#">
+        <a className="navbar-brand" href="/">
           Книга рецептов
         </a>
         <button
