@@ -8,7 +8,6 @@ export default function Register() {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(Object.fromEntries(new FormData(e.target))),
     });
-    if (res.status === 200) window.location = "/";
   }
   return (
     <form onSubmit={submitHandler}>
