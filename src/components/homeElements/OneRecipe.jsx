@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import axios from "axios";
-import ReceipePage from "./ReceipePage";
+import ReceipePage from "./ReceipePage"; // А зачем оно тут?
 
 // Это компонент, который оображается в Home page
 
 export default function OneRecipe({ recipe, setOneRecipePage, user }) {
+  const [favIcon, setFavIcon] = useState(true);
   const favHandler = async (e) => {
     e.stopPropagation();
+    setFavIcon((prev) => !prev);
     await axios.put("/favourite", recipe);
   };
   return (
@@ -27,12 +29,10 @@ export default function OneRecipe({ recipe, setOneRecipePage, user }) {
         <li className="list-group-item">Cooking time: {recipe.time}</li>
       </ul>
       <div>
-        {user ? (
+        {user && favIcon && (
           <div className="heart">
             <img onClick={favHandler} src="img/heart.png" alt="" />
           </div>
-        ) : (
-          <></>
         )}
       </div>
       <hr />
