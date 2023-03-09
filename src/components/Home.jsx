@@ -1,30 +1,18 @@
-import React from 'react';
+import React, { useEffect } from "react";
+import OneRecipe from "./homeElements/OneRecipe";
 
 export default function Home() {
-  return (
-    // style='width: 18rem;' // вставить в img когда будет много карточек
-    <div className='card' style={{width: "18rem" }}>
-      <img src='img/pizza.jpg' className='card-img-top' alt='' />
-      <div className='card-body'>
-        <h5 className='card-title'>Card title</h5>
-        <p className='card-text'>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </p>
-      </div>
-      <ul className='list-group list-group-flush'>
-        <li className='list-group-item'>An item</li>
-        <li className='list-group-item'>A second item</li>
-        <li className='list-group-item'>A third item</li>
-      </ul>
-      <div className='card-body'>
-        <a href='#' className='card-link'>
-          Card link
-        </a>
-        <a href='#' className='card-link'>
-          Another link
-        </a>
-      </div>
-    </div>
-  );
+  // Создать переменную с массивом категорий и после буквы q запихать
+  // Возможно логику запроса из юзеффекта надо вынести в функцию
+  useEffect(() => {
+    fetch(
+      "https://api.edamam.com/api/recipes/v2?type=public&beta=false&q=soup&app_id=ea8b9ed4&app_key=%20dd76fee58274a583ce5ee3e916c01595%09&random=true"
+    )
+      .then((res) => res.json())
+      .then(console.log);
+  }, []);
+  // Сделать массив объектов, с которым будет удобно работать,
+  // Подогнать под него запрос
+  const recipes = []; // это типо то, что мы получили с юзэффекта
+  return <OneRecipe />;
 }

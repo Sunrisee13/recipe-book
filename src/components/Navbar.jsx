@@ -28,7 +28,13 @@ export default function Navbar({ user }) {
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           {user ? (
             <>
-              <button className="btn btn-outline-success" type="button">
+              <button
+                className="btn btn-outline-success"
+                type="button"
+                onClick={() => {
+                  window.location = "/favourite";
+                }}
+              >
                 Избранное
               </button>
               <button
