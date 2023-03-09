@@ -1,10 +1,6 @@
 body{
   width: 100vw;
 }
-.header {
-  /* display: flex;
-  justify-content: space-around; */
-}
 
 .logo img {
   width: 150px;
@@ -17,4 +13,28 @@ body{
 .navbar {
   display: flex;
   justify-content: space-around;
+}
+
+.heart img{
+  width: 30px;
+  position: absolute;
+  top: 15px;
+  right: 20px;
+}
+
+.one-recipe {
+  position: relative;
+}
+
+.list-in-one-card {
+  display: inline-flex;
+  color: red;
+}
+
+.btn-fav {
+  margin-left: 20%;
+}
+
+.navbar-toggler-icon {
+  margin-left: 50%;
 }

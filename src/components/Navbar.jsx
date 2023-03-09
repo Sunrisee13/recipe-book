@@ -1,13 +1,17 @@
 import React from 'react';
 
 export default function Navbar({ user }) {
+  async function logoutHandler() {
+    const res = await fetch('/auth/logout', { method: 'POST' });
+    if (res.status === 200) window.location = '/';
+  }
   return (
     <nav className='navbar navbar-expand-lg bg-body-tertiary'>
       <div className='logo'>
         <img src='img/logo.svg' alt='' />
       </div>
       <div className='container-fluid navbar'>
-        <a className='navbar-brand' href='#'>
+        <a className='navbar-brand' href='/'>
           Книга рецептов
         </a>
         <button
@@ -24,10 +28,21 @@ export default function Navbar({ user }) {
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
           {user ? (
             <>
-              <button className='btn btn-outline-success' type='submit'>
+              <span className='navbar-toggler-icon'>Hi, Анастасия</span>
+              <button
+                className='btn btn-outline-success btn-fav'
+                type='button'
+                onClick={() => {
+                  window.location = '/favourite';
+                }}
+              >
                 Избранное
               </button>
-              <button className='btn btn-outline-success' type='submit'>
+              <button
+                className='btn btn-outline-success'
+                type='button'
+                onClick={logoutHandler}
+              >
                 Выйти
               </button>
             </>
@@ -55,9 +70,6 @@ export default function Navbar({ user }) {
                     </a>
                   </li>
                 </ul>
-              </li>
-              <li>
-                <span className='navbar-toggler-icon'>Имя пользователя</span>
               </li>
             </ul>
           )}

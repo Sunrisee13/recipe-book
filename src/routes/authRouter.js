@@ -59,4 +59,13 @@ router
     }
   });
 
+router.post("/logout", (req, res) => {
+  try {
+  } catch (e) {
+    console.log(e);
+    res.sendStatus(500);
+  }
+  req.session.destroy();
+  res.clearCookie("user_sid").redirect("/").sendStatus(200);
+});
 export default router;
