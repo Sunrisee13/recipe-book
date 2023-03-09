@@ -5,16 +5,15 @@ import Register from './auth/Register';
 import Favourite from './Favourite';
 import Home from './Home';
 import Navbar from './Navbar';
-import ReceipePage from './homeElements/ReceipePage'; // удалить + роутер
+import ReceipePage from './homeElements/ReceipePage';
 
-function App({ user }) {
-  console.log(user);
+function App({ user, recipes }) {
   return (
     <>
       <Navbar user={user} />
       <Routes>
         <Route path='/' element={<Home user={user} />} />
-        <Route path='/favourite' element={<Favourite />} />
+        <Route path='/favourite' element={<Favourite recipes={recipes}/>} />
         <Route path='/auth/reg' element={<Register />} />
         <Route path='/auth' element={<Auth />} />
       </Routes>

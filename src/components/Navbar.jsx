@@ -28,7 +28,7 @@ export default function Navbar({ user }) {
         <div className='collapse navbar-collapse' id='navbarSupportedContent'>
           {user ? (
             <>
-              <span className='navbar-toggler-icon'>Hi, Анастасия</span>
+              <div>Hi, {user.login}</div>
               <button
                 className='btn btn-outline-success btn-fav'
                 type='button'

@@ -5,7 +5,9 @@ import ReceipePage from './ReceipePage';
 // Это компонент, который оображается в Home page
 
 export default function OneRecipe({ recipe, setOneRecipePage, user }) {
-  console.log('onerecipepage', user);
+  const favHandler = async () => {
+    await axios.put('/favourite', recipe);
+  };
   return (
     <div
       onClick={() => {
@@ -26,13 +28,12 @@ export default function OneRecipe({ recipe, setOneRecipePage, user }) {
       <div>
         {user ? (
           <div className='heart'>
-            <img src='img/heart.png' alt='' />
+            <img onClick={favHandler} src='img/heart.png' alt='' />
           </div>
         ) : (
           <></>
         )}
       </div>
-
       <hr />
     </div>
   );
