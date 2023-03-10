@@ -22,12 +22,12 @@ router
     );
     res.sendStatus(200);
   });
-router.patch('/:id', async (req, res) => {
+router.patch('/', async (req, res) => {
   try {
-    const { id } = req.params;
+    // const { id } = req.params;
     const newRecipe = await Favourite.findOne(
       {
-        where: { id },
+        where: { user_id: req.session.user.id },
       },
     );
     newRecipe.name = req.body.name;
@@ -40,10 +40,10 @@ router.patch('/:id', async (req, res) => {
     res.sendStatus(500);
   }
 });
-router.delete('/:id', async (req, res) => {
-  const { id } = req.params;
+router.delete('/', async (req, res) => {
+  // const { id } = req.params;
   try {
-    await Favourite.destroy({ where: { id } });
+    await Favourite.destroy({ where: { user_id: req.session.user.id } });
     res.sendStatus(200);
   } catch (error) {
     console.log(error);

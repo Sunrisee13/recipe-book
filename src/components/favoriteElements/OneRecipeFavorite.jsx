@@ -11,7 +11,7 @@ export default function OneRecipeFavorite({ user, recipe, setRecipes }) {
   const editHandler = (id) => {
     setChange(!change);
     if (change) {
-      axios.patch(`/favourites/${recipe.id}`, { name: recipeState.name, ingredients: recipeState.ingredients, time: recipeState.time })
+      axios.patch('/favourite', { name: recipeState.name, ingredients: recipeState.ingredients, time: recipeState.time })
         .then(({ data }) => setRecipes((prev) => prev.map((el) => {
           if (el.id === data.id) {
             return data;
@@ -20,7 +20,7 @@ export default function OneRecipeFavorite({ user, recipe, setRecipes }) {
     }
   };
   const deleteHandler = () => {
-    axios.delete(`/favourites/${recipe.id}`)
+    axios.delete('/favourite')
       .then(() => setRecipes((prev) => prev.filter((recipe) => recipe.id !== recipe.id)))
       .catch(console.log);
   };
