@@ -24,7 +24,7 @@ body {
 .navbar {
   display: flex;
   justify-content: space-around;
-  /* background-color: #be5d77; */
+  background-color: #be5d77;
   height: 100px;
 }
 
