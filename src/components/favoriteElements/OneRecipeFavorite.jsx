@@ -1,5 +1,5 @@
-import axios from 'axios';
-import React, { useState } from 'react';
+import axios from "axios";
+import React, { useState } from "react";
 
 export default function OneRecipeFavorite({ user, recipe, setRecipes }) {
   const [change, setChange] = useState(false);
@@ -46,24 +46,24 @@ export default function OneRecipeFavorite({ user, recipe, setRecipes }) {
   };
 
   return (
-    <div className='card one-recipeFav fav-card-cust' style={{ width: '18rem' }}>
-      <img src={recipe.img} className='card-img-top' alt='' />
-      <div className='card-body'>
+    <div className="card one-recipeFav" style={{ width: "18rem" }}>
+      <img src={recipe.img} className="card-img-top" alt="" />
+      <div className="card-body">
         {!change ? (
-          <h5 className='card-title'>{recipe?.name}</h5>
+          <h5 className="card-title">{recipe?.name}</h5>
         ) : (
           <input
-            name='name'
+            name="name"
             onChange={changeHandler}
-            type='text'
-            className='form-control'
+            type="text"
+            className="form-control"
             value={recipeState.name}
           />
         )}
       </div>
-      <ul className='list-group list-group-flush '>
+      <ul className="list-group list-group-flush ">
         {!change ? (
-          <li className='list-group-item'>
+          <li className="list-group-item">
             Ingredients: {recipe?.ingredients}
           </li>
         ) : (
@@ -86,6 +86,9 @@ export default function OneRecipeFavorite({ user, recipe, setRecipes }) {
             value={recipeState.time}
           />
         )}
+        <li className="list-group-item">
+          <a href={recipe.instruction}>Рецепт</a>
+        </li>
       </ul>
 
       {!change ? (

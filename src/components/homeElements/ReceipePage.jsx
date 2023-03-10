@@ -1,5 +1,4 @@
-import React from 'react';
-// Это страничка с одним рецептом
+import React from "react";
 
 export default function ReceipePage({ oneRecipePage, setOneRecipePage }) {
   return (

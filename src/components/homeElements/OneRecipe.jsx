@@ -1,8 +1,5 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import ReceipePage from './ReceipePage'; // А зачем оно тут?
-
-// Это компонент, который оображается в Home page
+import React, { useState } from "react";
+import axios from "axios";
 
 export default function OneRecipe({ recipe, setOneRecipePage, user }) {
   const [favIcon, setFavIcon] = useState(true);
