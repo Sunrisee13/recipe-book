@@ -2,6 +2,11 @@ body {
   width: 100vw;
 }
 
+#root {
+  background-color: #FAFAF2;
+
+}
+
 .logo img {
   width: 150px;
 }
@@ -26,10 +31,10 @@ body {
   position: relative;
 }
 
-.list-in-one-card {
+/* .list-in-one-card {
   display: inline-flex;
   color: red;
-}
+} */
 
 .btn-fav {
   margin-left: 20%;
@@ -41,4 +46,14 @@ body {
 
 .btn-active-custom {
   background: #BCBEC0;
+}
+
+.one-recipe:hover {
+  background: #EEF0ED;
+}
+
+.all-cards-cust {
+  display: flex;
+  justify-content: center;
+
 }

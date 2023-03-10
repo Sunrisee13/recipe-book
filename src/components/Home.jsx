@@ -1,28 +1,28 @@
-import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
-import Pagination from "./Pagination";
-import OneRecipe from "./homeElements/OneRecipe";
-import ReceipePage from "./homeElements/ReceipePage";
-import Sort from "./homeElements/Sort";
+import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
+import Pagination from './Pagination';
+import OneRecipe from './homeElements/OneRecipe';
+import ReceipePage from './homeElements/ReceipePage';
+import Sort from './homeElements/Sort';
 
 export default function Home({ user }) {
   const [recipes1, setRecipes] = useState([]);
   const category = () => {
     const hardCodeCategoryFood = [
-      "soup",
-      "salad",
-      "burger",
-      "paste",
-      "meat",
-      "drink",
-      "cake",
-      "bread",
-      "cereals",
-      "desserts",
-      "preserve",
-      "preps",
-      "sandwiches",
-      "starter",
+      'soup',
+      'salad',
+      'burger',
+      'paste',
+      'meat',
+      'drink',
+      'cake',
+      'bread',
+      'cereals',
+      'desserts',
+      'preserve',
+      'preps',
+      'sandwiches',
+      'starter',
     ];
     const random = Math.floor(Math.random() * hardCodeCategoryFood.length);
     return hardCodeCategoryFood[random];
@@ -30,7 +30,7 @@ export default function Home({ user }) {
 
   const { page } = useParams();
 
-  const [currentPage, setCurrentPage] = useState("1");
+  const [currentPage, setCurrentPage] = useState('1');
   // const [page1, setPage1] = useState([]);
   // const [page2, setPage2] = useState([]);
   // const [page3, setPage3] = useState([]);
@@ -76,12 +76,10 @@ export default function Home({ user }) {
             .length,
         }));
         setRecipes(obj);
-        setAllPages((prev) => {
-          return {
-            ...prev,
-            page1: obj,
-          };
-        });
+        setAllPages((prev) => ({
+          ...prev,
+          page1: obj,
+        }));
         // setAllPages((prev) => ({
         //   ...prev,
         //   page1: recipes1,
@@ -91,12 +89,12 @@ export default function Home({ user }) {
   }, []);
 
   const [oneRecipePage, setOneRecipePage] = useState({
-    name: "",
-    img: "",
-    ingredients: "",
-    instruction: "",
-    time: "",
-    ingredientsScale: "",
+    name: '',
+    img: '',
+    ingredients: '',
+    instruction: '',
+    time: '',
+    ingredientsScale: '',
   });
 
   return (
@@ -110,7 +108,7 @@ export default function Home({ user }) {
       ) : (
         <>
           <Sort setRecipes={setRecipes} />
-          <div className="row">
+          <div className='row'>
             {recipes1?.map((recipe) => (
               <OneRecipe
                 key={recipe.name}
@@ -120,18 +118,17 @@ export default function Home({ user }) {
               />
             ))}
           </div>
+          <div className='col-12'>
+            <Pagination
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              allPages={allPages}
+              setAllPages={setAllPages}
+              setRecipes={setRecipes}
+            />
+          </div>
         </>
       )}
-
-      <div className="col-12">
-        <Pagination
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          allPages={allPages}
-          setAllPages={setAllPages}
-          setRecipes={setRecipes}
-        />
-      </div>
     </>
   );
 }
