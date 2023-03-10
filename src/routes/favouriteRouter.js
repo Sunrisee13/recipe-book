@@ -1,10 +1,10 @@
-import express from "express";
-import { Favourite } from "../../db/models";
+import express from 'express';
+import { Favourite } from '../../db/models';
 
 const router = express.Router();
 
 router
-  .route("/")
+  .route('/')
   .get(async (req, res) => {
     const initState = {
       recipes: (
@@ -14,7 +14,7 @@ router
     // console.log(await Favourite.findAll());
     console.log(initState.recipes);
     // Рецепты будем вытягивать по юзеру, который зашёл
-    res.render("Layout", initState);
+    res.render('Layout', initState);
   })
   .put(async (req, res) => {
     console.log(
