@@ -11,9 +11,6 @@ router
         await Favourite.findAll({ where: { user_id: req.session.user.id } })
       ).map((el) => el.dataValues),
     };
-    // console.log(await Favourite.findAll());
-    console.log(initState.recipes);
-    // Рецепты будем вытягивать по юзеру, который зашёл
     res.render("Layout", initState);
   })
   .put(async (req, res) => {
@@ -24,7 +21,6 @@ router
   })
   .patch(async (req, res) => {
     try {
-      // const { id } = req.params;
       const newRecipe = await Favourite.findOne({
         where: { user_id: req.session.user.id },
       });

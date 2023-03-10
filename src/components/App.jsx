@@ -5,7 +5,6 @@ import Register from "./auth/Register";
 import Favourite from "./Favourite";
 import Home from "./Home";
 import Navbar from "./Navbar";
-import ReceipePage from "./homeElements/ReceipePage";
 
 function App({ user, recipes }) {
   return (
