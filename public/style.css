@@ -38,3 +38,7 @@ body {
 .navbar-toggler-icon {
   margin-left: 50%;
 }
+
+.btn-active-custom {
+  background: #BCBEC0;
+}
