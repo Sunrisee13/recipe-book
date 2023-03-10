@@ -98,7 +98,7 @@ export default function Home({ user }) {
   });
 
   return (
-    <>
+    <div class="page">
       {oneRecipePage.name ? (
         <ReceipePage
           oneRecipePage={oneRecipePage}
@@ -127,8 +127,9 @@ export default function Home({ user }) {
               setRecipes={setRecipes}
             />
           </div>
+          <footer></footer>
         </>
       )}
-    </>
+    </div>
   );
 }

@@ -24,12 +24,12 @@ export default function OneRecipe({ recipe, setOneRecipePage, user }) {
       <div className='card-body'>
         <h5 className='card-title'>{recipe.name}</h5>
       </div>
-      <ul className='list-group list-group-flush '>
-        <li className='list-group-item'>
-          Ingredients:
+      <ul className='list-group list-group-flush' id="all-cards-allign">
+        <li className='list-group-item' id="ingr">
+          Ingredients: 
           {recipe.ingredients}
         </li>
-        <li className='list-group-item'>
+        <li className='list-group-item ' id="cooking">
           Cooking time:
           {recipe.time}
         </li>
