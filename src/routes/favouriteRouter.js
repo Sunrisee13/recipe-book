@@ -1,23 +1,30 @@
 import express from "express";
 import { Favourite } from "../../db/models";
+import { checkUser } from "../middlewares";
 
 const router = express.Router();
 
 router
   .route("/")
   .get(async (req, res) => {
-    const initState = {
-      recipes: (
-        await Favourite.findAll({ where: { user_id: req.session.user.id } })
-      ).map((el) => el.dataValues),
-    };
-    res.render("Layout", initState);
+    try {
+      const initState = {
+        recipes: (
+          await Favourite.findAll({ where: { user_id: req.session.user.id } })
+        ).map((el) => el.dataValues),
+      };
+      res.render("Layout", initState);
+    } catch (e) {
+      res.sendStatus(500);
+    }
   })
   .put(async (req, res) => {
-    console.log(
-      await Favourite.create({ ...req.body, user_id: req.session.user.id })
-    );
-    res.sendStatus(200);
+    try {
+      await Favourite.create({ ...req.body, user_id: req.session.user.id });
+      res.sendStatus(200);
+    } catch (e) {
+      res.sendStatus(500);
+    }
   })
   .patch(async (req, res) => {
     try {
@@ -34,7 +41,8 @@ router
       res.sendStatus(500);
     }
   });
-router.delete("/:id", async (req, res) => {
+
+router.delete("/:id", checkUser, async (req, res) => {
   const { id } = req.params;
   try {
     await Favourite.destroy({ where: { id } });
