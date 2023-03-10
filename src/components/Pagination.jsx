@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from 'react';
 
 export default function Pagination({
   currentPage,
@@ -9,20 +9,20 @@ export default function Pagination({
 }) {
   const category = () => {
     const hardCodeCategoryFood = [
-      "soup",
-      "salad",
-      "burger",
-      "paste",
-      "meat",
-      "drink",
-      "cake",
-      "bread",
-      "cereals",
-      "desserts",
-      "preserve",
-      "preps",
-      "sandwiches",
-      "starter",
+      'soup',
+      'salad',
+      'burger',
+      'paste',
+      'meat',
+      'drink',
+      'cake',
+      'bread',
+      'cereals',
+      'desserts',
+      'preserve',
+      'preps',
+      'sandwiches',
+      'starter',
     ];
     const random = Math.floor(Math.random() * hardCodeCategoryFood.length);
     return hardCodeCategoryFood[random];
@@ -41,7 +41,7 @@ export default function Pagination({
 
   function checkPage(page) {
     switch (page) {
-      case "1": {
+      case '1': {
         // if (allPages.page1.length === 0) {
         //   fetch(
         //     `https://api.edamam.com/api/recipes/v2?type=public&beta=false&q=${category()}&app_id=ea8b9ed4&app_key=%20dd76fee58274a583ce5ee3e916c01595%09&random=true`
@@ -62,7 +62,7 @@ export default function Pagination({
         break;
       }
 
-      case "2": {
+      case '2': {
         if (allPages.page2.length === 0) {
           fetch(
             `https://api.edamam.com/api/recipes/v2?type=public&beta=false&q=${category()}&app_id=ea8b9ed4&app_key=%20dd76fee58274a583ce5ee3e916c01595%09&random=true`
@@ -79,7 +79,7 @@ export default function Pagination({
         }
         break;
       }
-      case "3": {
+      case '3': {
         if (allPages.page3.length === 0) {
           fetch(
             `https://api.edamam.com/api/recipes/v2?type=public&beta=false&q=${category()}&app_id=ea8b9ed4&app_key=%20dd76fee58274a583ce5ee3e916c01595%09&random=true`
@@ -95,7 +95,7 @@ export default function Pagination({
         }
         break;
       }
-      case "4": {
+      case '4': {
         if (allPages.page4.length === 0) {
           fetch(
             `https://api.edamam.com/api/recipes/v2?type=public&beta=false&q=${category()}&app_id=ea8b9ed4&app_key=%20dd76fee58274a583ce5ee3e916c01595%09&random=true`
@@ -111,7 +111,7 @@ export default function Pagination({
         }
         break;
       }
-      case "5": {
+      case '5': {
         if (allPages.page5.length === 0) {
           fetch(
             `https://api.edamam.com/api/recipes/v2?type=public&beta=false&q=${category()}&app_id=ea8b9ed4&app_key=%20dd76fee58274a583ce5ee3e916c01595%09&random=true`
@@ -132,19 +132,26 @@ export default function Pagination({
     }
   }
 
-  const pages = ["1", "2", "3", "4", "5"];
+  const pages = ['1', '2', '3', '4', '5'];
+
   return (
-    <nav aria-label="Page navigation example">
-      <ul className="pagination pagination-lg justify-content-center">
+    <nav aria-label='Page navigation example'>
+      <ul className='pagination pagination-lg justify-content-center'>
         {pages.map((el) => (
-          <li key={el} className="page-item">
+          <li key={el} className='page-item'>
             <button
               onClick={() => {
                 setCurrentPage(el);
                 checkPage(el);
+                setPageColor(el);
+                colorPage(el);
               }}
-              type="button"
-              className={el === currentPage ? "page-link active" : "page-link"}
+              type='button'
+              className={
+                el === currentPage
+                  ? 'btn btn-primary btn-lg m-1'
+                  : 'btn btn-light btn-lg m-1'
+              }
             >
               {el}
             </button>
