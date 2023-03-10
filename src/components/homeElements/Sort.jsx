@@ -4,7 +4,7 @@ export default function Sort({ setRecipes }) {
   function shuffle(arr) {
     const array = [...arr];
     for (let i = array.length - 1; i > 0; i--) {
-      let j = Math.floor(Math.random() * (i + 1));
+      const j = Math.floor(Math.random() * (i + 1));
       [array[i], array[j]] = [array[j], array[i]];
     }
     return array;
@@ -15,15 +15,13 @@ export default function Sort({ setRecipes }) {
   }
 
   function ingrHandler() {
-    setRecipes((prev) => {
-      return [...prev].sort((a, b) => a.ingredientsScale - b.ingredientsScale);
-    });
+    setRecipes((prev) =>
+      [...prev].sort((a, b) => a.ingredientsScale - b.ingredientsScale)
+    );
   }
 
   function timeHandler() {
-    setRecipes((prev) => {
-      return [...prev].sort((a, b) => a.time - b.time);
-    });
+    setRecipes((prev) => [...prev].sort((a, b) => a.time - b.time));
   }
 
   return (

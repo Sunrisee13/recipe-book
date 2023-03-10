@@ -17,7 +17,7 @@ function App({ user, recipes }) {
         />
         <Route path="/auth" element={<Auth />} />
         <Route path="/" element={<Home user={user} />} />
-        <Route path="/auth/reg" element={<Register />} />
+        <Route path="/reg" element={<Register />} />
       </Routes>
     </>
   );

@@ -73,7 +73,7 @@ export default function Home({ user }) {
   });
 
   return (
-    <>
+    <div className="page">
       {oneRecipePage.name ? (
         <ReceipePage
           oneRecipePage={oneRecipePage}
@@ -93,18 +93,17 @@ export default function Home({ user }) {
               />
             ))}
           </div>
+          <div className="col-12">
+            <Pagination
+              currentPage={currentPage}
+              setCurrentPage={setCurrentPage}
+              allPages={allPages}
+              setAllPages={setAllPages}
+              setRecipes={setRecipes}
+            />
+          </div>
         </>
       )}
-
-      <div className="col-12">
-        <Pagination
-          currentPage={currentPage}
-          setCurrentPage={setCurrentPage}
-          allPages={allPages}
-          setAllPages={setAllPages}
-          setRecipes={setRecipes}
-        />
-      </div>
-    </>
+    </div>
   );
 }

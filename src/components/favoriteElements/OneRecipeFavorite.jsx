@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 
-export default function OneRecipeFavorite({ user, recipe, setRecipes }) {
+export default function OneRecipeFavorite({ recipe, setRecipes }) {
   const [change, setChange] = useState(false);
   const [recipeState, setRcipeState] = useState({
     name: recipe.name,
@@ -15,7 +15,7 @@ export default function OneRecipeFavorite({ user, recipe, setRecipes }) {
       [event.target.name]: event.target.value,
     }));
   };
-  const editHandler = (id) => {
+  const editHandler = () => {
     setChange(!change);
     if (change) {
       axios
@@ -46,67 +46,77 @@ export default function OneRecipeFavorite({ user, recipe, setRecipes }) {
   };
 
   return (
-    <div className="card one-recipeFav" style={{ width: "18rem" }}>
-      <img src={recipe.img} className="card-img-top" alt="" />
-      <div className="card-body">
-        {!change ? (
-          <h5 className="card-title">{recipe?.name}</h5>
-        ) : (
-          <input
-            name="name"
-            onChange={changeHandler}
-            type="text"
-            className="form-control"
-            value={recipeState.name}
-          />
-        )}
-      </div>
-      <ul className="list-group list-group-flush ">
-        {!change ? (
+    <>
+      <div className="card one-recipeFav m-2" style={{ width: "18rem" }}>
+        <img src={recipe?.img} className="card-img-top" alt="picture" />
+        <div className="card-body">
+          {!change ? (
+            <h5 className="card-title">{recipe?.name}</h5>
+          ) : (
+            <input
+              name="name"
+              onChange={changeHandler}
+              type="text"
+              className="form-control"
+              value={recipeState.name}
+            />
+          )}
+        </div>
+        <ul className="list-group list-group-flush ">
+          {!change ? (
+            <li className="list-group-item">
+              Ingredients: {recipe?.ingredients}
+            </li>
+          ) : (
+            <input
+              name="ingredients"
+              onChange={changeHandler}
+              type="text"
+              className="form-control"
+              value={recipeState.ingredients}
+            />
+          )}
+          {!change ? (
+            <li className="list-group-item">Cooking time: {recipe?.time}</li>
+          ) : (
+            <input
+              name="time"
+              onChange={changeHandler}
+              type="text"
+              className="form-control"
+              value={recipeState.time}
+            />
+          )}
           <li className="list-group-item">
-            Ingredients: {recipe?.ingredients}
+            <a href={recipe.instruction}>Рецепт</a>
           </li>
-        ) : (
-          <input
-            name="ingredients"
-            onChange={changeHandler}
-            type="text"
-            className="form-control"
-            value={recipeState.ingredients}
-          />
-        )}
-        {!change ? (
-          <li className="list-group-item">Cooking time: {recipe?.time}</li>
-        ) : (
-          <input
-            name="time"
-            onChange={changeHandler}
-            type="text"
-            className="form-control"
-            value={recipeState.time}
-          />
-        )}
-        <li className="list-group-item">
-          <a href={recipe.instruction}>Рецепт</a>
-        </li>
-      </ul>
+        </ul>
 
-      {!change ? (
+        {!change ? (
+          <button
+            type="button"
+            onClick={() => setChange((prev) => !prev)}
+            className="btn btn-primary m-2"
+          >
+            Change
+          </button>
+        ) : (
+          <button
+            type="button"
+            className="btn btn-warning m-2"
+            onClick={editHandler}
+          >
+            Save
+          </button>
+        )}
         <button
           type="button"
-          onClick={() => setChange((prev) => !prev)}
-          className="btn btn-dark"
+          className="btn btn-danger m-2"
+          onClick={deleteHandler}
         >
-          Change
+          Delete
         </button>
-      ) : (
-        <button type="button" onClick={editHandler} className="btn btn-primary">
-          Save
-        </button>
-      )}
-      <button type="button" onClick={deleteHandler} className="btn btn-dark">
-        Delete
-      </button>
-    </div>
+      </div>
+    </>
   );
 }

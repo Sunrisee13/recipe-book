@@ -6,6 +6,7 @@ import jsxRender from "./utils/jsxRender";
 import indexRouter from "./routes/indexRouter";
 import favouriteRouter from "./routes/favouriteRouter";
 import authRouter from "./routes/authRouter";
+import regRouter from "./routes/regRouter";
 import { authMiddleware, pathMiddleware } from "./middlewares";
 
 require("dotenv").config();
@@ -43,6 +44,7 @@ app.use(authMiddleware);
 app.use("/", indexRouter);
 app.use("/favourite", favouriteRouter);
 app.use("/auth", authRouter);
+app.use("/reg", regRouter);
 
 app.listen(PORT, () => {
   console.log(`server started PORT: ${PORT}`);
