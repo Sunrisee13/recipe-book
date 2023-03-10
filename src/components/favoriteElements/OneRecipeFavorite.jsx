@@ -19,7 +19,7 @@ export default function OneRecipeFavorite({ user, recipe, setRecipes }) {
     setChange(!change);
     if (change) {
       axios
-        .patch("/favourite", {
+        .patch('/favourite', {
           name: recipeState.name,
           ingredients: recipeState.ingredients,
           time: recipeState.time,
@@ -68,21 +68,21 @@ export default function OneRecipeFavorite({ user, recipe, setRecipes }) {
           </li>
         ) : (
           <input
-            name="ingredients"
+            name='ingredients'
             onChange={changeHandler}
-            type="text"
-            className="form-control"
+            type='text'
+            className='form-control'
             value={recipeState.ingredients}
           />
         )}
         {!change ? (
-          <li className="list-group-item">Cooking time: {recipe?.time}</li>
+          <li className='list-group-item'>Cooking time: {recipe?.time}</li>
         ) : (
           <input
-            name="time"
+            name='time'
             onChange={changeHandler}
-            type="text"
-            className="form-control"
+            type='text'
+            className='form-control'
             value={recipeState.time}
           />
         )}
@@ -93,18 +93,26 @@ export default function OneRecipeFavorite({ user, recipe, setRecipes }) {
 
       {!change ? (
         <button
-          type="button"
+          type='button'
           onClick={() => setChange((prev) => !prev)}
-          className="btn btn-dark"
+          className='btn btn-primary m-2'
         >
           Change
         </button>
       ) : (
-        <button type="button" onClick={editHandler} className="btn btn-primary">
+        <button
+          type='button'
+          className='btn btn-warning m-2'
+          onClick={editHandler}
+        >
           Save
         </button>
       )}
-      <button type="button" onClick={deleteHandler} className="btn btn-dark">
+      <button
+        type='button'
+        className='btn btn-danger m-2'
+        onClick={deleteHandler}
+      >
         Delete
       </button>
     </div>
