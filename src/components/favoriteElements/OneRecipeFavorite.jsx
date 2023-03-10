@@ -20,8 +20,8 @@ export default function OneRecipeFavorite({ user, recipe, setRecipes }) {
     }
   };
   const deleteHandler = () => {
-    axios.delete('/favourite')
-      .then(() => setRecipes((prev) => prev.filter((recipe) => recipe.id !== recipe.id)))
+    axios.delete(`/favourite/${recipe.id}`)
+      .then(() => setRecipes((prev) => prev.filter((recipe1) => recipe1.id !== recipe.id)))
       .catch(console.log);
   };
 

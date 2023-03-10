@@ -40,10 +40,10 @@ router.patch('/', async (req, res) => {
     res.sendStatus(500);
   }
 });
-router.delete('/', async (req, res) => {
-  // const { id } = req.params;
+router.delete('/:id', async (req, res) => {
+  const { id } = req.params;
   try {
-    await Favourite.destroy({ where: { user_id: req.session.user.id } });
+    await Favourite.destroy({ where: { id } });
     res.sendStatus(200);
   } catch (error) {
     console.log(error);
