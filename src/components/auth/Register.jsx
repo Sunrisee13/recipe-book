@@ -11,7 +11,7 @@ export default function Register() {
     if (res.status === 200) window.location = '/';
   }
   return (
-    <div className='row '>
+    <div className='row p-3 mb-2 bg-body-secondary'>
       <div className='col d-flex justify-content-center'>
         <form onSubmit={submitHandler} id='reg'>
           <div className='mb-3'>

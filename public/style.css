@@ -1,12 +1,13 @@
 body {
   width: 100vw;
+  /* background-color: #be5d77; */
   /* height: 100vh; */
 }
 
 #root {
   background-color: #fbf8f5;
   /* background: linear-gradient(#ffcfc5, #f2f3bc); */
-  height: auto;
+  height: 100%;
 }
 .page {
   padding-left: 30px;
@@ -23,7 +24,7 @@ body {
 .navbar {
   display: flex;
   justify-content: space-around;
-  background-color: #be5d77;
+  /* background-color: #be5d77; */
   height: 100px;
 }
 

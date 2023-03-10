@@ -21,6 +21,7 @@ export default function Auth() {
                 name='email'
                 type='email'
                 className='form-control'
+                id='exampleInputEmail1'
                 aria-describedby='emailHelp'
               />
             </label>

@@ -48,6 +48,7 @@ export default function Navbar({ user }) {
                 </button>
               </>
             ) : (
+              <>
               <ul className='navbar-nav me-auto mb-2 mb-lg-0'>
                 <li className='nav-item dropdown'>
                   <a
@@ -57,7 +58,7 @@ export default function Navbar({ user }) {
                     data-bs-toggle='dropdown'
                     aria-expanded='false'
                   >
-                   <button className='btn btn-primary'>Войти</button> 
+                    <button className='btn btn-primary'>Войти</button>
                   </a>
                   <ul className='dropdown-menu'>
                     <li>
@@ -73,6 +74,7 @@ export default function Navbar({ user }) {
                   </ul>
                 </li>
               </ul>
+              </>
             )}
           </div>
         </div>

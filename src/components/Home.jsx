@@ -127,7 +127,6 @@ export default function Home({ user }) {
               setRecipes={setRecipes}
             />
           </div>
-          <footer></footer>
         </>
       )}
     </div>
