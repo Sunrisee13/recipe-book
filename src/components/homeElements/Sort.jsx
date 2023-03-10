@@ -27,9 +27,9 @@ export default function Sort({ setRecipes }) {
   }
 
   return (
-    <div class="dropdown">
+    <div className="dropdown">
       <button
-        class="btn btn-secondary dropdown-toggle"
+        className="btn btn-secondary dropdown-toggle"
         type="button"
         id="dropdownMenuButton1"
         data-bs-toggle="dropdown"
@@ -37,24 +37,24 @@ export default function Sort({ setRecipes }) {
       >
         Сортировка
       </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+      <ul className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
         <li>
-          <a class="dropdown-item" onClick={timeHandler}>
+          <a className="dropdown-item" onClick={timeHandler}>
             по времени приготовления
           </a>
         </li>
         <li>
-          <a class="dropdown-item" onClick={ingrHandler}>
+          <a className="dropdown-item" onClick={ingrHandler}>
             По количеству ингридиентов
           </a>
         </li>
         <li>
-          <a class="dropdown-item" onClick={shuffleHandler}>
+          <a className="dropdown-item" onClick={shuffleHandler}>
             Перемешать
           </a>
         </li>
         <li>
-          <a class="dropdown-item" href="/">
+          <a className="dropdown-item" href="/">
             Обновить
           </a>
         </li>
