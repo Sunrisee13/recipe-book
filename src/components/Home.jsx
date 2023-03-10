@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import Pagination from "./Pagination";
 import OneRecipe from "./homeElements/OneRecipe";
 import ReceipePage from "./homeElements/ReceipePage";
-import Pagination from "./Pagination";
+import Sort from "./homeElements/Sort";
 
 export default function Home({ user }) {
   const [recipes1, setRecipes] = useState([]);
@@ -107,16 +108,19 @@ export default function Home({ user }) {
           user={user}
         />
       ) : (
-        <div className="row">
-          {recipes1?.map((recipe) => (
-            <OneRecipe
-              key={recipe.name}
-              recipe={recipe}
-              setOneRecipePage={setOneRecipePage}
-              user={user}
-            />
-          ))}
-        </div>
+        <>
+          <Sort setRecipes={setRecipes} />
+          <div className="row">
+            {recipes1?.map((recipe) => (
+              <OneRecipe
+                key={recipe.name}
+                recipe={recipe}
+                setOneRecipePage={setOneRecipePage}
+                user={user}
+              />
+            ))}
+          </div>
+        </>
       )}
 
       <div className="col-12">
