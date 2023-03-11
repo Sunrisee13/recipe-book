@@ -14,8 +14,8 @@ require("dotenv").config();
 const app = express();
 const PORT = 3000;
 
-app.engine("jsx", jsxRender);
-app.set("view engine", "jsx");
+app.engine("js", jsxRender);
+app.set("view engine", "js");
 app.set("views", path.join(__dirname, "components"));
 
 app.use(express.json());
