@@ -11,10 +11,10 @@ router
     res.render("Layout", initState);
   })
   .post(async (req, res) => {
-    const { email, password } = req.body;
-    if (!email && !password)
-      return res.status(400).json({ message: "Не должно быть пустых полей" });
     try {
+      const { email, password } = req.body;
+      if (!email && !password)
+        return res.status(400).json({ message: "Не должно быть пустых полей" });
       const user = await User.findOne({ where: { email } });
       if (user && (await bcrypt.compare(password, user.password))) {
         req.session.user = { id: user.id, login: user.login };
@@ -29,11 +29,11 @@ router
 
 router.post("/logout", (req, res) => {
   try {
+    req.session.destroy();
+    res.clearCookie("user_sid").redirect("/").sendStatus(200);
   } catch (e) {
     console.log(e);
     res.sendStatus(500);
   }
-  req.session.destroy();
-  res.clearCookie("user_sid").redirect("/").sendStatus(200);
 });
 export default router;
